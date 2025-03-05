@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Gardiens de la Galaxie</title>
+    <style>
+        /* RESET ET BASE */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Courier New', monospace;
+        }
+        
+        body {
+            background-color: #0c0e1a;
+            color: #fff;
+            overflow-x: hidden;
+            background-image: url('/api/placeholder/1920/1080');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+        }
+        
+        /* HEADER STYLE */
+        header {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .nav-container {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px;
+            z-index: 100;
+            background-color: rgba(12, 14, 26, 0.8);
+            backdrop-filter: blur(5px);
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin: 0 20px;
+        }
+        
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            position: relative;
+            padding: 5px 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: color.3s ease;
+        }
+        
+        nav ul li a:hover {
+            color: #f0466d;
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #f0466d;
+            transition: width 0.3s ease;
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        .hero {
+            text-align: center;
+            z-index: 1;
+            padding: 20px;
+        }
+        
+        .hero h1 {
+            font-size: 5rem;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px rgba(240, 70, 109, 0.8);
+            animation: glow 2s infinite alternate;
+        }
+        
+        .hero p {
+            font-size: 1.5rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            color: #ddd;
+        }
+        
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px rgba(240, 70, 109, 0.8);
+            }
+            to {
+                text-shadow: 0 0 20px rgba(240, 70, 109, 1), 0 0 30px rgba(240, 70, 109, 0.7);
+            }
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: linear-gradient(45deg, #f0466d, #8a4fff);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: bold;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin: 10px;
+        }
+        
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(240, 70, 109, 0.3);
+        }
+        
+        /* SECTIONS */
+        section {
+            padding: 100px 50px;
+            position: relative;
+        }
+        
+        section h2 {
+            font-size: 3rem;
+            margin-bottom: 50px;
+            text-align: center;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        section h2::after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(45deg, #f0466d, #8a4fff);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        /* À PROPOS */
+        .about {
+            background-color: rgba(15, 18, 34, 0.8);
+            backdrop-filter: blur(10px);
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .about-img {
+            flex: 1;
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+        
+        .about-img:hover {
+            transform: scale(1.05);
+        }
+        
+        .about-img img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+        
+        /* PROJETS */
+        .projects {
+            background-color: rgba(12, 14, 26, 0.9);
+        }
+        
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .project-card {
+            background-color: rgba(28, 32, 58, 0.8);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(240, 70, 109, 0.3);
+        }
+        
+        .project-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .project-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .project-card:hover .project-img img {
+            transform: scale(1.1);
+        }
+        
+        .project-info {
+            padding: 20px;
+        }
+        
+        .project-info h3 {
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+            color: #f0466d;
+        }
+        
+        .project-info p {
+            margin-bottom: 15px;
+            color: #ddd;
+        }
+        
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .tag {
+            padding: 5px 10px;
+            background-color: rgba(240, 70, 109, 0.2);
+            color: #f0466d;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+        
+        /* CONTACT */
+        .contact {
+            background-color: rgba(15, 18, 34, 0.8);
+            backdrop-filter: blur(10px);
+        }
+        
+        .contact-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        form .full-width {
+            grid-column: 1 / 3;
+        }
+        
+        input, textarea {
+            width: 100%;
+            padding: 15px;
+            background-color: rgba(28, 32, 58, 0.8);
+            border: 2px solid #1c203a;
+            color: white;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        input:focus, textarea:focus {
+            border-color: #f0466d;
+            outline: none;
+            box-shadow: 0 0 10px rgba(240, 70, 109, 0.3);
+        }
+        
+        textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+        
+        button {
+            cursor: pointer;
+            background: linear-gradient(45deg, #f0466d, #8a4fff);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-radius: 30px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(240, 70, 109, 0.3);
+        }
+        
+        /* FOOTER */
+        footer {
+            background-color: rgba(10, 12, 20, 0.9);
+            text-align: center;
+            padding: 30px;
+        }
+        
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(45deg, #f0466d, #8a4fff);
+            color: white;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            transform: translateY(-5px) rotate(10deg);
+        }
+        
+        .copyright {
+            color: #777;
+            font-size: 0.9rem;
+        }
+        
+        /* ANIMATION DES ÉTOILES */
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .star {
+            position: absolute;
+            background-color: white;
+            border-radius: 50%;
+            animation: twinkle var(--duration) infinite ease-in-out;
+            opacity: 0;
+        }
+        
+        @keyframes twinkle {
+            0%, 100% {
+                opacity: 0;
+            }
+            50% {
+                opacity: var(--opacity);
+            }
+        }
+        
+        /* RESPONSIVE */
+        @media (max-width: 992px) {
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            section {
+                padding: 80px 30px;
+            }
+            
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            nav ul li {
+                margin: 0 10px;
+            }
+            
+            nav ul li a {
+                font-size: 16px;
+            }
+            
+            form {
+                grid-template-columns: 1fr;
+            }
+            
+            form .full-width {
+                grid-column: 1;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            section h2 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Étoiles en arrière-plan -->
+    <div class="stars"></div>
+    
+    <!-- Navigation -->
+    <div class="nav-container">
+        <nav>
+            <ul>
+                <li><a href="#home">Accueil</a></li>
+                <li><a href="#about">À propos</a></li>
+                <li><a href="#projects">Projets</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+    
+    <!-- Header -->
+    <header id="home">
+        <div class="hero">
+            <h1>Explorateur Galactique</h1>
+            <p>Développeur web • Designer • Aventurier de l'espace</p>
+            <a href="#projects" class="btn">Voir mes projets</a>
+            <a href="#contact" class="btn">Me contacter</a>
+        </div>
+    </header>
+    
+    <!-- À propos -->
+    <section id="about" class="about">
+        <h2>À propos</h2>
+        <div class="about-content">
+            <div class="about-img">
+                <img src="/api/placeholder/500/500" alt="Portrait">
+            </div>
+            <div class="about-text">
+                <p>Bienvenue dans mon univers numérique ! Tout comme les Gardiens de la Galaxie, je suis un aventurier du web, explorant les confins du design et du développement pour créer des expériences uniques.</p>
+                <p>Avec plus de 5 ans d'expérience dans la création de sites web et d'applications, j'ai développé une expertise dans les technologies modernes comme React, Vue.js et Node.js, tout en gardant une passion pour les effets visuels créatifs et les interfaces utilisateur innovantes.</p>
+                <p>Quand je ne suis pas en train de coder, vous pouvez me trouver à l'écoute des meilleures musiques des années 80, à la recherche d'inspiration pour mes prochaines créations.</p>
+                <a href="#" class="btn">Télécharger mon CV</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Projets -->
+    <section id="projects" class="projects">
+        <h2>Mes Projets</h2>
+        <div class="project-grid">
+            <!-- Projet 1 -->
+            <div class="project-card">
+                <div class="project-img">
+                    <img src="/api/placeholder/400/300" alt="Projet 1">
+                </div>
+                <div class="project-info">
+                    <h3>Nova Prime</h3>
+                    <p>Une boutique en ligne futuriste avec des animations fluides et une expérience utilisateur immersive.</p>
+                    <div class="project-tags">
+                        <span class="tag">React</span>
+                        <span class="tag">GSAP</span>
+                        <span class="tag">Firebase</span>
+                    </div>
+                    <a href="#" class="btn">Voir le projet</a>
+                </div>
+            </div>
+            
+            <!-- Projet 2 -->
+            <div class="project-card">
+                <div class="project-img">
+                    <img src="/api/placeholder/400/300" alt="Projet 2">
+                </div>
+                <div class="project-info">
+                    <h3>Xandar Dashboard</h3>
+                    <p>Interface d'administration avec visualisation de données en temps réel pour une entreprise tech.</p>
+                    <div class="project-tags">
+                        <span class="tag">Vue.js</span>
+                        <span class="tag">D3.js</span>
+                        <span class="tag">Node.js</span>
+                    </div>
+                    <a href="#" class="btn">Voir le projet</a>
+                </div>
+            </div>
+            
+            <!-- Projet 3 -->
+            <div class="project-card">
+                <div class="project-img">
+                    <img src="/api/placeholder/400/300" alt="Projet 3">
+                </div>
+                <div class="project-info">
+                    <h3>Knowhere Social</h3>
+                    <p>Application de réseau social avec chat en temps réel et partage de médias interplanétaires.</p>
+                    <div class="project-tags">
+                        <span class="tag">MongoDB</span>
+                        <span class="tag">Express</span>
+                        <span class="tag">WebSockets</span>
+                    </div>
+                    <a href="#" class="btn">Voir le projet</a>
+                </div>
+            </div>
+            
+            <!-- Projet 4 -->
+            <div class="project-card">
+                <div class="project-img">
+                    <img src="/api/placeholder/400/300" alt="Projet 4">
+                </div>
+                <div class="project-info">
+                    <h3>Milano Travel</h3>
+                    <p>Site de réservation de voyages interstellaires avec des visuels époustouflants et des animations immersives.</p>
+                    <div class="project-tags">
+                        <span class="tag">Three.js</span>
+                        <span class="tag">WebGL</span>
+                        <span class="tag">SCSS</span>
+                    </div>
+                    <a href="#" class="btn">Voir le projet</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact -->
+    <section id="contact" class="contact">
+        <h2>Me Contacter</h2>
+        <div class="contact-container">
+            <form>
+                <div>
+                    <input type="text" placeholder="Nom" required>
+                </div>
+                <div>
+                    <input type="email" placeholder="Email" required>
+                </div>
+                <div class="full-width">
+                    <input type="text" placeholder="Sujet" required>
+                </div>
+                <div class="full-width">
+                    <textarea placeholder="Message" required></textarea>
+                </div>
+                <div class="full-width">
+                    <button type="submit">Envoyer le message</button>
+                </div>
+            </form>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="social-icons">
+            <a href="#"><span>FB</span></a>
+            <a href="#"><span>TW</span></a>
+            <a href="#"><span>IG</span></a>
+            <a href="#"><span>GH</span></a>
+        </div>
+        <p class="copyright">© 2025 Portfolio Gardiens de la Galaxie. Tous droits réservés.</p>
+    </footer>
+    
+    <script>
+        // Animation de défilement fluide
+        document.querySelectorAll('nav a, .hero a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop,
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Animation de la navigation au défilement
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('.nav-container');
+            
+            if (window.scrollY > 100) {
+                nav.style.padding = '10px';
+                nav.style.background = 'rgba(10, 12, 20, 0.9)';
+            } else {
+                nav.style.padding = '20px';
+                nav.style.background = 'rgba(12, 14, 26, 0.8)';
+            }
+        });
+        
+        // Création d'étoiles en arrière-plan
+        function createStars() {
+            const starsContainer = document.querySelector('.stars');
+            const numberOfStars = 200;
+            
+            for (let i = 0; i < numberOfStars; i++) {
+                const star = document.createElement('div');
+                star.classList.add('star');
+                
+                // Position aléatoire
+                const x = Math.random() * 100;
+                const y = Math.random() * 100;
+                
+                // Taille aléatoire
+                const size = Math.random() * 2 + 1;
+                
+                // Animation aléatoire
+                const duration = Math.random() * 5 + 3;
+                const delay = Math.random() * 5;
+                const opacity = Math.random() * 0.8 + 0.2;
+                
+                star.style.left = `${x}%`;
+                star.style.top = `${y}%`;
+                star.style.width = `${size}px`;
+                star.style.height = `${size}px`;
+                star.style.setProperty('--duration', `${duration}s`);
+                star.style.setProperty('--opacity', opacity);
+                star.style.animationDelay = `${delay}s`;
+                
+                starsContainer.appendChild(star);
+            }
+        }
+        
+        // Animation des cartes de projet
+        function animateProjectCards() {
+            const projectCards = document.querySelectorAll('.project-card');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            projectCards.forEach(card => {
+                card.style.opacity = 0;
+                card.style.transform = 'translateY(50px)';
+                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(card);
+            });
+        }
+        
+        // Appeler les fonctions au chargement de la page
+        window.addEventListener('load', () => {
+            createStars();
+            animateProjectCards();
+        });
+    </script>
+</body>
+</html>
