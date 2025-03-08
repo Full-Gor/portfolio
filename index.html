@@ -844,6 +844,264 @@
             10%, 30%, 50%, 70%, 90% { transform: translateX(-2px); }
             20%, 40%, 60%, 80% { transform: translateX(2px); }
         }
+
+
+
+        /* Styles pour améliorer l'expérience tactile sur mobile */
+
+/* Augmenter la taille des éléments interactifs pour faciliter le toucher */
+@media (max-width: 768px) {
+    .btn, button, nav ul li a {
+        padding: 15px 25px !important;
+        margin: 10px !important;
+    }
+    
+    .project-card {
+        min-height: 300px;
+    }
+    
+    .tag {
+        padding: 8px 16px !important;
+        margin: 5px !important;
+        font-size: 1rem !important;
+    }
+    
+    /* Augmenter la taille du vaisseau spatial pour les écrans tactiles */
+    .starship-cursor {
+        transform: translate(-50%, -50%) rotate(-45deg) scale(1.5) !important;
+        opacity: 0.8;
+    }
+    
+    /* Zone de toucher plus grande pour les lettres */
+    .letter {
+        padding: 5px;
+        margin: 3px;
+    }
+    
+    /* Ajuster les animations des lettres pour le tactile */
+    .letter-title:hover, .letter-heading:hover, .letter-paragraph:hover, 
+    .letter-tag:hover, .letter-link:hover, .letter-button:hover {
+        transition: transform 0.2s ease, color 0.2s ease, text-shadow 0.2s ease;
+    }
+    
+    /* Adapter les animations du laser pour les écrans tactiles */
+    .laser {
+        height: 8px !important; /* Laser plus épais sur mobile */
+        box-shadow: 0 0 15px #46a2f0, 0 0 20px rgba(240, 70, 109, 0.8) !important;
+    }
+    
+    /* Rendre les particules plus visibles sur les petits écrans */
+    .pixel {
+        width: 6px !important;
+        height: 6px !important;
+        box-shadow: 0 0 8px rgba(240, 70, 109, 0.9) !important;
+    }
+    
+    /* Améliorer la visibilité du pointeur de ciblage */
+    .targeting {
+        width: 12px !important;
+        height: 12px !important;
+        border: 3px solid rgba(240, 70, 109, 0.9) !important;
+    }
+}
+
+/* Désactiver l'effet hover sur les appareils tactiles et utiliser active à la place */
+@media (hover: none) {
+    .letter-title:hover, .letter-heading:hover, .letter-paragraph:hover, 
+    .letter-tag:hover, .letter-link:hover, .letter-button:hover {
+        transform: none;
+        color: inherit;
+        text-shadow: none;
+    }
+    
+    .letter-title:active, .letter-heading:active, .letter-paragraph:active, 
+    .letter-tag:active, .letter-link:active, .letter-button:active {
+        transform: translateY(-10px);
+        color: #f0466d;
+        text-shadow: 0 5px 10px rgba(240, 70, 109, 0.5);
+    }
+    
+    .project-card:hover {
+        transform: none;
+    }
+    
+    .project-card:active {
+        transform: translateY(-5px);
+    }
+    
+    .btn:hover, button:hover {
+        transform: none;
+        box-shadow: none;
+    }
+    
+    .btn:active, button:active {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(240, 70, 109, 0.3);
+    }
+}
+
+/* Adaptations pour l'orientation du téléphone */
+@media (max-width: 768px) and (orientation: landscape) {
+    .hero h1 {
+        font-size: 2.5rem !important;
+    }
+    
+    .hero p {
+        font-size: 1rem !important;
+    }
+    
+    .nav-container {
+        padding: 10px !important;
+    }
+    
+    nav ul li {
+        margin: 0 10px !important;
+    }
+    
+    /* Ajuster la hauteur du header en paysage */
+    header {
+        height: auto !important;
+        min-height: 100vh;
+    }
+}
+
+/* Styles spécifiques pour les très petits écrans (téléphones compacts) */
+@media (max-width: 320px) {
+    .hero h1 {
+        font-size: 1.8rem
+        /* Styles pour améliorer l'expérience tactile sur mobile */
+
+/* Augmenter la taille des éléments interactifs pour faciliter le toucher */
+@media (max-width: 768px) {
+    .btn, button, nav ul li a {
+        padding: 15px 25px !important;
+        margin: 10px !important;
+    }
+    
+    .project-card {
+        min-height: 300px;
+    }
+    
+    .tag {
+        padding: 8px 16px !important;
+        margin: 5px !important;
+        font-size: 1rem !important;
+    }
+    
+    /* Augmenter la taille du vaisseau spatial pour les écrans tactiles */
+    .starship-cursor {
+        transform: translate(-50%, -50%) rotate(-45deg) scale(1.5) !important;
+        opacity: 0.8;
+    }
+    
+    /* Zone de toucher plus grande pour les lettres */
+    .letter {
+        padding: 5px;
+        margin: 3px;
+    }
+    
+    /* Ajuster les animations des lettres pour le tactile */
+    .letter-title:hover, .letter-heading:hover, .letter-paragraph:hover, 
+    .letter-tag:hover, .letter-link:hover, .letter-button:hover {
+        transition: transform 0.2s ease, color 0.2s ease, text-shadow 0.2s ease;
+    }
+    
+    /* Adapter les animations du laser pour les écrans tactiles */
+    .laser {
+        height: 8px !important; /* Laser plus épais sur mobile */
+        box-shadow: 0 0 15px #46a2f0, 0 0 20px rgba(240, 70, 109, 0.8) !important;
+    }
+    
+    /* Rendre les particules plus visibles sur les petits écrans */
+    .pixel {
+        width: 6px !important;
+        height: 6px !important;
+        box-shadow: 0 0 8px rgba(240, 70, 109, 0.9) !important;
+    }
+    
+    /* Améliorer la visibilité du pointeur de ciblage */
+    .targeting {
+        width: 12px !important;
+        height: 12px !important;
+        border: 3px solid rgba(240, 70, 109, 0.9) !important;
+    }
+}
+
+/* Désactiver l'effet hover sur les appareils tactiles et utiliser active à la place */
+@media (hover: none) {
+    .letter-title:hover, .letter-heading:hover, .letter-paragraph:hover, 
+    .letter-tag:hover, .letter-link:hover, .letter-button:hover {
+        transform: none;
+        color: inherit;
+        text-shadow: none;
+    }
+    
+    .letter-title:active, .letter-heading:active, .letter-paragraph:active, 
+    .letter-tag:active, .letter-link:active, .letter-button:active {
+        transform: translateY(-10px);
+        color: #f0466d;
+        text-shadow: 0 5px 10px rgba(240, 70, 109, 0.5);
+    }
+    
+    .project-card:hover {
+        transform: none;
+    }
+    
+    .project-card:active {
+        transform: translateY(-5px);
+    }
+    
+    .btn:hover, button:hover {
+        transform: none;
+        box-shadow: none;
+    }
+    
+    .btn:active, button:active {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(240, 70, 109, 0.3);
+    }
+}
+
+/* Adaptations pour l'orientation du téléphone */
+@media (max-width: 768px) and (orientation: landscape) {
+    .hero h1 {
+        font-size: 2.5rem !important;
+    }
+    
+    .hero p {
+        font-size: 1rem !important;
+    }
+    
+    .nav-container {
+        padding: 10px !important;
+    }
+    
+    nav ul li {
+        margin: 0 10px !important;
+    }
+    
+    /* Ajuster la hauteur du header en paysage */
+    header {
+        height: auto !important;
+        min-height: 100vh;
+    }
+}
+
+/* Styles spécifiques pour les très petits écrans (téléphones compacts) */
+@media (max-width: 320px) {
+    .hero h1 {
+        font-size: 1.8rem !important;
+    }
+    
+    .btn, button {
+        padding: 10px 15px !important;
+        font-size: 0.9rem !important;
+    }
+    
+    nav ul li a {
+        font-size: 14px !important;
+    }
+}
     </style>
 </head>
 <body>
@@ -1843,6 +2101,714 @@
         animateProjectCards();
         initStarship();
     });
+
+
+
+
+    // Code JavaScript pour le support tactile du vaisseau spatial
+
+// Fonction pour initialiser le support tactile pour le vaisseau spatial
+function initTouchStarship() {
+    const starship = document.getElementById('starshipCursor');
+    if (!starship) return;
+
+    // Variables pour gérer les interactions tactiles
+    let lastTouchX = 0;
+    let lastTouchY = 0;
+    let isTouching = false;
+    const hitLetters = new Set(); // Lettres touchées
+    const hitElements = new Set(); // Éléments interactifs touchés
+
+    // Assurer que le vaisseau est visible
+    starship.style.display = 'block';
+
+    // Gérer le début du toucher
+    document.addEventListener('touchstart', function(e) {
+        // Empêcher le comportement par défaut (comme le défilement)
+        e.preventDefault();
+        
+        const touch = e.touches[0];
+        const touchX = touch.clientX;
+        const touchY = touch.clientY;
+        
+        // Positionner le vaisseau à l'endroit touché
+        starship.style.left = touchX + 'px';
+        starship.style.top = touchY + 'px';
+        
+        // Stocker la position pour les calculs
+        starship.dataset.realX = touchX;
+        starship.dataset.realY = touchY + window.scrollY;
+        
+        // Effet visuel de "toucher"
+        const currentTransform = starship.style.transform || '';
+        if (!currentTransform.includes('scale(0.8)')) {
+            starship.style.transform += ' scale(0.8)';
+        }
+        
+        // Activer le réacteur du vaisseau
+        const reactor = starship.querySelector('.starship-reactor');
+        if (reactor) reactor.style.opacity = '1';
+        
+        // Mémoriser la position
+        lastTouchX = touchX;
+        lastTouchY = touchY;
+        isTouching = true;
+        
+        // Tirer un laser au toucher (comme un clic)
+        fireLaser(touch);
+    }, { passive: false });
+
+    // Gérer le mouvement du doigt
+    document.addEventListener('touchmove', function(e) {
+        // Empêcher le comportement par défaut (comme le défilement)
+        e.preventDefault();
+        
+        if (!isTouching) return;
+        
+        const touch = e.touches[0];
+        const touchX = touch.clientX;
+        const touchY = touch.clientY;
+        
+        // Positionner le vaisseau à l'endroit touché
+        starship.style.left = touchX + 'px';
+        starship.style.top = touchY + 'px';
+        
+        // Stocker la position pour les calculs
+        starship.dataset.realX = touchX;
+        starship.dataset.realY = touchY + window.scrollY;
+        
+        // Calculer l'angle de rotation en fonction du mouvement
+        if (lastTouchX && lastTouchY) {
+            const deltaX = touchX - lastTouchX;
+            const deltaY = touchY - lastTouchY;
+            
+            if (Math.abs(deltaX) > 2 || Math.abs(deltaY) > 2) {
+                // Calculer l'angle du mouvement et appliquer la rotation
+                const angle = Math.atan2(deltaY, deltaX) * 150 / Math.PI;
+                starship.style.transform = `translate(-50%, -50%) rotate(${angle + 105}deg) scale(0.8)`;
+            }
+        }
+        
+        // Mémoriser la position
+        lastTouchX = touchX;
+        lastTouchY = touchY;
+    }, { passive: false });
+
+    // Gérer la fin du toucher
+    document.addEventListener('touchend', function(e) {
+        // Restaurer la taille normale
+        const transform = starship.style.transform.replace(' scale(0.8)', '');
+        starship.style.transform = transform;
+        
+        // Désactiver le réacteur
+        const reactor = starship.querySelector('.starship-reactor');
+        if (reactor) reactor.style.opacity = '0.8';
+        
+        isTouching = false;
+    }, { passive: false });
+
+    // La fonction fireLaser existante modifiée pour gérer les événements tactiles
+    function fireLaser(event) {
+        // Position du vaisseau (coordonnées réelles ajustées au défilement)
+        const shipX = parseInt(starship.dataset.realX || starship.style.left);
+        const shipY = parseInt(starship.dataset.realY || starship.style.top);
+        
+        // Obtenir l'angle actuel du vaisseau
+        let shipAngle = 0;
+        const transform = starship.style.transform;
+        if (transform) {
+            const rotateMatch = transform.match(/rotate\(([-\d.]+)deg\)/);
+            if (rotateMatch && rotateMatch[1]) {
+                shipAngle = parseFloat(rotateMatch[1]);
+            }
+        }
+        
+        // Convertir l'angle en radians pour calculer la direction du projectile
+        const shipAngleRad = (shipAngle - 105) * Math.PI / 180;
+        
+        // Calculer le point de départ du projectile (pointe du vaisseau)
+        const projectileLength = 20; // longueur du vaisseau
+        const startX = shipX + Math.cos(shipAngleRad) * projectileLength;
+        const startY = shipY + Math.sin(shipAngleRad) * projectileLength;
+        
+        // Position de la cible (là où l'utilisateur a touché)
+        let targetX = event.clientX;
+        let targetY = event.clientY;
+        
+        // Ajouter un point de mire avant le tir
+        const target = document.createElement('div');
+        target.className = 'targeting';
+        target.style.left = targetX + 'px';
+        target.style.top = targetY + 'px';
+        target.style.animation = 'targetting 0.3s forwards';
+        document.body.appendChild(target);
+        
+        // Nettoyer le point de mire après l'animation
+        setTimeout(() => {
+            if (target.parentNode) {
+                document.body.removeChild(target);
+            }
+        }, 300);
+        
+        // Effet sonore de laser
+        playSoundEffect('laser');
+        
+        // Tir direct (jet rapide de particules)
+        const maxParticles = 15;
+        const maxDistance = 1500;
+        const particleSpeed = 25;
+        
+        let particleCount = 0;
+        let distance = 0;
+        let hitDetected = false;
+        
+        const jetInterval = setInterval(() => {
+            distance += particleSpeed;
+            
+            // Calculer la position actuelle du jet
+            const currentX = startX + Math.cos(shipAngleRad) * distance;
+            const currentY = startY + Math.sin(shipAngleRad) * distance;
+            
+            // Calculer la position visuelle pour les particules (ajustée pour le défilement)
+            const visualY = currentY - window.scrollY;
+            
+            // Créer une particule à cette position
+            if (particleCount < maxParticles) {
+                // Ajouter un petit décalage aléatoire pour avoir un jet plus naturel
+                const jitter = 3; // amplitude du tremblement
+                const offsetX = (Math.random() - 0.5) * jitter;
+                const offsetY = (Math.random() - 0.5) * jitter;
+                
+                createLaserTrail(currentX + offsetX, visualY + offsetY, shipAngleRad);
+                particleCount++;
+            }
+            
+            // Vérifier s'il y a collision avec une lettre ou un élément interactif
+            if (!hitDetected) {
+                // Convertir les coordonnées réelles en coordonnées d'écran
+                const screenX = currentX;
+                const screenY = visualY;
+                
+                // Vérifier que nous sommes dans les limites de la fenêtre
+                if (screenX >= 0 && screenX <= window.innerWidth && 
+                    screenY >= 0 && screenY <= window.innerHeight) {
+                    
+                    const elementsAtPoint = document.elementsFromPoint(screenX, screenY);
+                    let hitLetter = null;
+                    let hitElement = null;
+                    
+                    // Vérifier d'abord si on touche une lettre
+                    for (const element of elementsAtPoint) {
+                        if (element.classList && 
+                            element.classList.contains('letter') && 
+                            !hitLetters.has(element) &&
+                            !element.classList.contains('exploded')) {
+                            hitLetter = element;
+                            break;
+                        }
+                    }
+                    
+                    // Si pas de lettre touchée, vérifier si on touche un élément interactif
+                    if (!hitLetter) {
+                        for (const element of elementsAtPoint) {
+                            if (element.classList && 
+                                element.classList.contains('interactive-element') && 
+                                !hitElements.has(element)) {
+                                hitElement = element;
+                                break;
+                            }
+                        }
+                    }
+                    
+                    // Si on a touché une lettre
+                    if (hitLetter) {
+                        hitDetected = true;
+                        
+                        // Marquer la lettre comme touchée
+                        hitLetters.add(hitLetter);
+                        
+                        // Exploser la lettre
+                        explodeLetter(hitLetter);
+                        
+                        // Effet d'impact
+                        createImpactEffect(currentX, visualY);
+                    }
+                    // Si on a touché un élément interactif
+                    else if (hitElement) {
+                        hitDetected = true;
+                        
+                        // Marquer l'élément comme touché
+                        hitElements.add(hitElement);
+                        
+                        // Effet sur l'élément
+                        elementEffect(hitElement, currentX, visualY);
+                        
+                        // Effet d'impact
+                        createImpactEffect(currentX, visualY);
+                    }
+                }
+            }
+            
+            // Arrêter si le jet a parcouru la distance maximale
+            if (distance > maxDistance || hitDetected) {
+                clearInterval(jetInterval);
+            }
+        }, 10); // Plus rapide pour un mouvement fluide
+    }
+    
+    // Fonction pour créer une particule du jet du laser
+    function createLaserTrail(x, y, angle) {
+        const trail = document.createElement('div');
+        trail.style.position = 'fixed'; // Pour rester en vue pendant le défilement
+        trail.style.width = '5px';
+        trail.style.height = '5px';
+        trail.style.zIndex = '9989';
+        trail.style.pointerEvents = 'none';
+        
+        // Couleurs du jet plus vives
+        const colors = ['#46a2f0', '#f0466d', '#8a4fff']; 
+        const color = colors[Math.floor(Math.random() * colors.length)];
+        
+        trail.style.backgroundColor = color;
+        trail.style.borderRadius = '50%';
+        trail.style.opacity = '0.9';
+        trail.style.boxShadow = `0 0 6px ${color}`;
+        
+        // Ajouter une légère variation de taille
+        const size = 4 + Math.random() * 3;
+        trail.style.width = `${size}px`;
+        trail.style.height = `${size}px`;
+        
+        // Position (ajustée pour être visible dans la viewport)
+        trail.style.left = x + 'px';
+        trail.style.top = y + 'px';
+        
+        document.body.appendChild(trail);
+        
+        // Animation de disparition rapide
+        setTimeout(() => {
+            trail.style.transition = 'opacity 0.2s ease, transform 0.2s ease';
+            trail.style.opacity = '0';
+            trail.style.transform = 'scale(1.5)';
+            setTimeout(() => {
+                if (trail.parentNode) {
+                    document.body.removeChild(trail);
+                }
+            }, 200);
+        }, 50);
+    }
+    
+    // Fonction pour créer un effet d'impact
+    function createImpactEffect(x, y) {
+        const impact = document.createElement('div');
+        impact.style.position = 'fixed'; 
+        impact.style.left = x + 'px';
+        impact.style.top = y + 'px';
+        impact.style.width = '25px';
+        impact.style.height = '25px';
+        impact.style.borderRadius = '50%';
+        impact.style.backgroundColor = 'rgba(240, 70, 109, 0.7)';
+        impact.style.boxShadow = '0 0 20px rgba(240, 70, 109, 0.8), 0 0 40px rgba(240, 70, 109, 0.4)';
+        impact.style.transform = 'translate(-50%, -50%)';
+        impact.style.zIndex = '9991';
+        impact.style.pointerEvents = 'none';
+        
+        document.body.appendChild(impact);
+        
+        // Animation de l'effet d'impact
+        impact.style.animation = 'impactPulse 0.3s forwards';
+        
+        // Style pour l'animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes impactPulse {
+            0% { transform: translate(-50%, -50%) scale(0.2); opacity: 1; }
+            100% { transform: translate(-50%, -50%) scale(2); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
+        
+        // Supprimer après l'animation
+        setTimeout(() => {
+            if (impact.parentNode) document.body.removeChild(impact);
+            if (style.parentNode) document.head.removeChild(style);
+        }, 300);
+    }
+    
+    // Fonction pour l'explosion d'une lettre
+    function explodeLetter(letter) {
+        // Obtenir la position et les dimensions de la lettre
+        const rect = letter.getBoundingClientRect();
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+        
+        // Sauvegarder les styles originaux
+        const originalColor = window.getComputedStyle(letter).color;
+        
+        // Nombre de pixels pour l'explosion
+        const pixelCount = 30;
+        
+        // Marquer la lettre comme explosée
+        letter.classList.add('exploded');
+        letter.style.opacity = '0';
+        
+        // Effet sonore d'explosion
+        playSoundEffect('explosion');
+        
+        // Créer des pixels d'explosion
+        for (let i = 0; i < pixelCount; i++) {
+            const pixel = document.createElement('div');
+            pixel.className = 'pixel';
+            
+            // Position initiale au centre de la lettre
+            pixel.style.left = centerX + 'px';
+            pixel.style.top = centerY + 'px';
+            
+            // Couleur aléatoire dans le thème de la lettre
+            const hue = Math.random() < 0.5 ? 
+                getHue(originalColor) : // Couleur originale
+                (Math.random() < 0.7 ? 350 : 200); // Rose ou bleu
+                
+            const lightness = 50 + Math.random() * 30;
+            pixel.style.backgroundColor = `hsl(${hue}, 80%, ${lightness}%)`;
+            
+            // Définir la direction aléatoire pour l'animation
+            const distance = 20 + Math.random() * 40;
+            const angle = Math.random() * Math.PI * 2;
+            const dx = Math.cos(angle) * distance;
+            const dy = Math.sin(angle) * distance;
+            const rot = (Math.random() - 0.5) * 720; // Rotation entre -360 et 360 degrés
+            
+            // Configurer les variables CSS personnalisées pour l'animation
+            pixel.style.setProperty('--dx', `${dx}px`);
+            pixel.style.setProperty('--dy', `${dy}px`);
+            pixel.style.setProperty('--rot', `${rot}deg`);
+            
+            // Appliquer les animations
+            pixel.style.animation = `
+                float 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000) forwards,
+                fadeOut 0.8s forwards
+            `;
+            
+            // Ajouter le pixel au DOM
+            document.body.appendChild(pixel);
+            
+            // Supprimer le pixel une fois l'animation terminée
+            setTimeout(() => {
+                if (pixel.parentNode) document.body.removeChild(pixel);
+            }, 800);
+        }
+        
+        // Réinitialiser après un délai
+        setTimeout(() => {
+            hitLetters.delete(letter);
+            letter.classList.remove('exploded');
+            letter.style.opacity = '1';
+        }, 1000);
+    }
+    
+    // Fonction pour extraire la teinte (hue) d'une couleur CSS
+    function getHue(color) {
+        // Convertir la couleur en format rgb si nécessaire
+        let rgbColor = color;
+        
+        // Si la couleur est au format hexadécimal ou nom, la convertir en RGB
+        if (color.startsWith('#') || !/^(rgb|hsl)/.test(color)) {
+            const tempEl = document.createElement('div');
+            tempEl.style.color = color;
+            document.body.appendChild(tempEl);
+            rgbColor = window.getComputedStyle(tempEl).color;
+            document.body.removeChild(tempEl);
+        }
+        
+        // Extraire les composantes RGB
+        const rgbMatch = rgbColor.match(/rgb\((\d+),\s*(\d+),\s*(\d+)\)/);
+        if (!rgbMatch) return 350; // Valeur par défaut si extraction impossible
+        
+        const r = parseInt(rgbMatch[1]) / 255;
+        const g = parseInt(rgbMatch[2]) / 255;
+        const b = parseInt(rgbMatch[3]) / 255;
+        
+        // Calculer la teinte à partir des valeurs RGB
+        const max = Math.max(r, g, b);
+        const min = Math.min(r, g, b);
+        
+        let h;
+        if (max === min) {
+            h = 0; // Achromatique (gris)
+        } else {
+            const d = max - min;
+            switch (max) {
+                case r: h = (g - b) / d + (g < b ? 6 : 0); break;
+                case g: h = (b - r) / d + 2; break;
+                case b: h = (r - g) / d + 4; break;
+            }
+            h = Math.round(h * 60);
+        }
+        
+        return h;
+    }
+    
+    // Fonction pour l'effet sur les éléments interactifs
+    function elementEffect(element, x, y) {
+        // Ajouter une classe pour l'animation
+        element.classList.add('hit-by-laser');
+        
+        // Extraction des coordonnées de l'élément
+        const rect = element.getBoundingClientRect();
+        
+        // Effet sonore
+        playSoundEffect('explosion');
+        
+        // Effet de pulsation lumineux
+        const glowOverlay = document.createElement('div');
+        glowOverlay.style.position = 'absolute';
+        glowOverlay.style.left = rect.left + 'px';
+        glowOverlay.style.top = rect.top + 'px';
+        glowOverlay.style.width = rect.width + 'px';
+        glowOverlay.style.height = rect.height + 'px';
+        glowOverlay.style.borderRadius = getComputedStyle(element).borderRadius;
+        glowOverlay.style.boxShadow = '0 0 30px rgba(240, 70, 109, 0.8), inset 0 0 20px rgba(240, 70, 109, 0.5)';
+        glowOverlay.style.opacity = '0';
+        glowOverlay.style.zIndex = '9000';
+        glowOverlay.style.pointerEvents = 'none';
+        glowOverlay.style.animation = 'elementPulse 0.6s forwards';
+        document.body.appendChild(glowOverlay);
+        
+        // Créer des particules qui émanent du point d'impact
+        const particleCount = 20;
+        for (let i = 0; i < particleCount; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'pixel';
+            
+            // Position initiale au point d'impact
+            particle.style.left = x + 'px';
+            particle.style.top = y + 'px';
+            
+            // Couleur aléatoire
+            const hue = Math.random() < 0.7 ? 350 : 200; // Rose ou bleu
+            const lightness = 50 + Math.random() * 30;
+            particle.style.backgroundColor = `hsl(${hue}, 80%, ${lightness}%)`;
+            
+            // Calculer la direction vers les bords de l'élément
+            const angle = Math.random() * Math.PI * 2;
+            const distance = Math.random() * 30 + 10;
+            const dx = Math.cos(angle) * distance;
+            const dy = Math.sin(angle) * distance;
+            const rot = (Math.random() - 0.5) * 720;
+            
+            // Configurer les variables CSS
+            particle.style.setProperty('--dx', `${dx}px`);
+            particle.style.setProperty('--dy', `${dy}px`);
+            particle.style.setProperty('--rot', `${rot}deg`);
+            
+            // Animation
+            particle.style.animation = `
+                float 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000) forwards,
+                fadeOut 0.8s forwards
+            `;
+            
+            // Ajouter la particule
+            document.body.appendChild(particle);
+            
+            // Nettoyer 
+            setTimeout(() => {
+                if (particle.parentNode) document.body.removeChild(particle);
+            }, 800);
+        }
+        
+        // Nettoyage des éléments
+        setTimeout(() => {
+            if (glowOverlay.parentNode) document.body.removeChild(glowOverlay);
+            element.classList.remove('hit-by-laser');
+            hitElements.delete(element);
+        }, 800);
+    }
+    
+    // Fonction pour les effets sonores
+    function playSoundEffect(type) {
+        // Créer un contexte audio si nécessaire
+        if (!window.audioContext) {
+            try {
+                window.audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            } catch (e) {
+                console.log('Audio non supporté');
+                return;
+            }
+        }
+        
+        const ctx = window.audioContext;
+        
+        if (type === 'laser') {
+            // Son de laser
+            const oscillator = ctx.createOscillator();
+            const gain = ctx.createGain();
+            
+            oscillator.type = 'sawtooth';
+            oscillator.frequency.setValueAtTime(880, ctx.currentTime);
+            oscillator.frequency.exponentialRampToValueAtTime(110, ctx.currentTime + 0.15);
+            
+            gain.gain.setValueAtTime(0.1, ctx.currentTime);
+            gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.15);
+            
+            oscillator.connect(gain);
+            gain.connect(ctx.destination);
+            
+            oscillator.start();
+            oscillator.stop(ctx.currentTime + 0.15);
+        } else if (type === 'explosion') {
+            // Son d'explosion
+            const oscillator = ctx.createOscillator();
+            const gain = ctx.createGain();
+            
+            oscillator.type = 'sine';
+            oscillator.frequency.setValueAtTime(880, ctx.currentTime);
+            oscillator.frequency.exponentialRampToValueAtTime(110, ctx.currentTime + 0.15);
+            
+            gain.gain.setValueAtTime(0.2, ctx.currentTime);
+            gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.15);
+            
+            oscillator.connect(gain);
+            gain.connect(ctx.destination);
+            
+            oscillator.start();
+            oscillator.stop(ctx.currentTime + 0.3);
+        }
+    }
+}
+
+// Ajouter cette fonction à l'événement DOMContentLoaded
+// Pour l'intégrer au code existant, on modifie la fonction initStarship()
+document.addEventListener('DOMContentLoaded', function() {
+    // Détection si on est sur appareil mobile ou tactile
+    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0;
+    
+    // Si c'est un appareil tactile, initialiser le support tactile
+    if (isTouchDevice) {
+        initTouchStarship();
+        
+        // Désactiver le défilement par défaut lors des interactions avec le vaisseau
+        document.addEventListener('touchstart', function(e) {
+            if (e.target.closest('.starship-cursor') || e.target.closest('.letter') || e.target.closest('.interactive-element')) {
+                e.preventDefault();
+            }
+        }, { passive: false });
+    }
+});
+
+// Fonction pour détecter si l'appareil est tactile
+function isTouchDevice() {
+    return (('ontouchstart' in window) ||
+            (navigator.maxTouchPoints > 0) ||
+            (navigator.msMaxTouchPoints > 0));
+}
+
+// Ajouter une classe au body pour les styles spécifiques au tactile
+document.addEventListener('DOMContentLoaded', function() {
+    if (isTouchDevice()) {
+        document.body.classList.add('touch-device');
+        
+        // Injecter le CSS pour les appareils tactiles
+        const touchStyles = document.createElement('style');
+        document.head.appendChild(touchStyles);
+        
+        // Désactiver le comportement de zoom par défaut sur les doubles tapotements
+        const viewportMeta = document.querySelector('meta[name="viewport"]');
+        if (viewportMeta) {
+            viewportMeta.content = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0';
+        }
+        
+        // Créer un élément invisible pour déclencher l'API audio sur les appareils iOS
+        // (iOS nécessite une interaction utilisateur pour démarrer l'audio)
+        const audioTrigger = document.createElement('button');
+        audioTrigger.style.position = 'fixed';
+        audioTrigger.style.opacity = '0';
+        audioTrigger.style.pointerEvents = 'none';
+        audioTrigger.style.zIndex = '-1';
+        document.body.appendChild(audioTrigger);
+        
+        // Initialiser l'audio context au premier toucher
+        document.addEventListener('touchstart', function initAudio() {
+            if (window.audioContext) {
+                const silentOscillator = window.audioContext.createOscillator();
+                const silentGain = window.audioContext.createGain();
+                silentGain.gain.value = 0;
+                silentOscillator.connect(silentGain);
+                silentGain.connect(window.audioContext.destination);
+                silentOscillator.start();
+                silentOscillator.stop(window.audioContext.currentTime + 0.001);
+            }
+            document.removeEventListener('touchstart', initAudio);
+        }, { once: true });
+    }
+});
+
+// Fonction pour permettre la navigation tactile tout en gardant le vaisseau spatial
+document.addEventListener('DOMContentLoaded', function() {
+    if (isTouchDevice()) {
+        // Variable pour suivre si nous sommes en mode navigation ou en mode vaisseau
+        let isNavigationMode = true;
+        
+        // Ajouter un bouton de basculement de mode
+        const modeToggle = document.createElement('div');
+        modeToggle.className = 'mode-toggle';
+        modeToggle.innerHTML = '<span>🚀</span>';
+        modeToggle.style.position = 'fixed';
+        modeToggle.style.bottom = '20px';
+        modeToggle.style.right = '20px';
+        modeToggle.style.width = '50px';
+        modeToggle.style.height = '50px';
+        modeToggle.style.backgroundColor = 'rgba(240, 70, 109, 0.8)';
+        modeToggle.style.borderRadius = '50%';
+        modeToggle.style.display = 'flex';
+        modeToggle.style.justifyContent = 'center';
+        modeToggle.style.alignItems = 'center';
+        modeToggle.style.fontSize = '24px';
+        modeToggle.style.boxShadow = '0 0 15px rgba(240, 70, 109, 0.4)';
+        modeToggle.style.zIndex = '1000';
+        modeToggle.style.transition = 'transform 0.3s ease, background-color 0.3s ease';
+        
+        document.body.appendChild(modeToggle);
+        
+        // Basculer entre les modes
+        modeToggle.addEventListener('touchstart', function(e) {
+            e.preventDefault();
+            isNavigationMode = !isNavigationMode;
+            
+            if (isNavigationMode) {
+                // Mode navigation
+                document.body.classList.remove('starship-mode');
+                modeToggle.style.backgroundColor = 'rgba(240, 70, 109, 0.8)';
+                modeToggle.innerHTML = '<span>🚀</span>';
+                document.getElementById('starshipCursor').style.display = 'none';
+            } else {
+                // Mode vaisseau
+                document.body.classList.add('starship-mode');
+                modeToggle.style.backgroundColor = 'rgba(70, 162, 240, 0.8)';
+                modeToggle.innerHTML = '<span>👆</span>';
+                document.getElementById('starshipCursor').style.display = 'block';
+            }
+        });
+        
+        // Effet de pression sur le bouton
+        modeToggle.addEventListener('touchstart', function() {
+            this.style.transform = 'scale(0.9)';
+        });
+        
+        modeToggle.addEventListener('touchend', function() {
+            this.style.transform = 'scale(1)';
+        });
+        
+        // Gérer les événements tactiles en fonction du mode
+        document.addEventListener('touchstart', function(e) {
+            if (!isNavigationMode && !e.target.closest('.mode-toggle')) {
+                // En mode vaisseau, prévenir les comportements par défaut du navigateur
+                // sauf pour le bouton de basculement
+                e.preventDefault();
+            }
+        }, { passive: false });
+    }
+});
 </script>
 </body>
 </html>
