@@ -1201,7 +1201,7 @@ body.starship-mode {
             }
             /* Espacement entre lettres très réduit (moitié) et entre lignes réduit */
             .hero h1, .hero p, section h2, .about-text p, .project-info p, .btn, button, .tag, nav ul li a {
-                letter-spacing: -0.08em !important;
+                letter-spacing: -0.90em !important;
                 line-height: 1.1 !important;
             }
         }
@@ -1221,6 +1221,34 @@ body.starship-mode {
         /* Espacement normal entre mots */
         .hero h1, .hero p, section h2, .about-text p, .project-info p, .btn, button, .tag, nav ul li a {
             word-spacing: 0.25em;
+        }
+        /* Pour cibler uniquement les lettres, on suppose que chaque lettre est dans un span.letter (déjà le cas dans ton JS) */
+        @media (max-width: 768px) {
+            span.letter {
+                letter-spacing: -0.08em !important;
+            }
+        }
+        @media (max-width: 480px) {
+            span.letter {
+                letter-spacing: -0.12em !important;
+            }
+        }
+        @media (max-width: 320px) {
+            span.letter {
+                letter-spacing: -0.16em !important;
+            }
+            .hero h1, .hero p, section h2, .about-text p, .project-info p, .btn, button, .tag, nav ul li a {
+                font-size: 0.9em !important;
+                line-height: 1 !important;
+            }
+        }
+        /* On remet l'espacement normal sur les espaces (non span) */
+        span.letter + span.letter {
+            margin-left: 0 !important;
+        }
+        span.letter.space {
+            letter-spacing: normal !important;
+            margin-left: 0.25em !important;
         }
     </style>
 </head>
@@ -1707,7 +1735,7 @@ body.starship-mode {
                     // Parcourir chaque caractère et l'envelopper dans un span
                     for (let i = 0; i < text.length; i++) {
                         if (text[i] === ' ') {
-                            wrappedText += ' '; // Préserver les espaces
+                            wrappedText += '<span class="letter space"> </span>';
                         } else {
                             // Ajouter une classe spécifique selon le type d'élément
                             let extraClass = '';
@@ -1717,7 +1745,6 @@ body.starship-mode {
                             else if (element.classList.contains('tag')) extraClass = 'letter-tag';
                             else if (element.tagName === 'A') extraClass = 'letter-link';
                             else if (element.classList.contains('btn') || element.tagName === 'BUTTON') extraClass = 'letter-button';
-                            
                             wrappedText += `<span class="letter ${extraClass}">${text[i]}</span>`;
                         }
                     }
