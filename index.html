@@ -409,6 +409,7 @@
             .hero h1 {
                 font-size: 3.5rem;
             }
+            span.letter { letter-spacing: -0.08em !important; }
         }
         
         @media (max-width: 768px) {
@@ -979,6 +980,7 @@
     nav ul li a {
         font-size: 14px !important;
     }
+    span.letter { letter-spacing: -0.16em !important; }
 }
 
 /* Styles pour le bouton de basculement mode navigation/vaisseau */
@@ -1184,6 +1186,7 @@ body.starship-mode {
                 font-size: 0.85rem;
                 padding: 8px 10px !important;
             }
+            span.letter { letter-spacing: -0.12em !important; }
         }
         /* Pour forcer le retour à la ligne naturel sur tous les textes */
         .hero h1, .hero p, section h2, .about-text p, .project-info p, .btn, button, .tag {
@@ -1219,6 +1222,15 @@ body.starship-mode {
         /* Espacement normal entre mots */
         .hero h1, .hero p, section h2, .about-text p, .project-info p, .btn, button, .tag, nav ul li a {
             word-spacing: 0.25em;
+        }
+        @media (max-width: 992px) {
+            span.letter { letter-spacing: -0.12em !important; }
+        }
+        @media (max-width: 480px) {
+            span.letter { letter-spacing: -0.18em !important; }
+        }
+        @media (max-width: 320px) {
+            span.letter { letter-spacing: -0.22em !important; }
         }
     </style>
 </head>
@@ -2347,38 +2359,43 @@ document.addEventListener('DOMContentLoaded', function() {
         this.style.transform = 'scale(1)';
     }, { passive: false });
     
-    // Gestion du défilement et des clics en mode vaisseau
+    // Gestion du défilement et des tirs en continu en mode vaisseau
+    let lastFire = 0;
     document.addEventListener('touchmove', function(e) {
         if (isShipMode && !e.target.closest('.mode-toggle')) {
             e.preventDefault();
-            
             const touch = e.touches[0];
             const touchX = touch.clientX;
             const touchY = touch.clientY;
-            
-            // Positionner le vaisseau à l'endroit touché
+            // Décale le curseur de 70px au-dessus du doigt
             starship.style.left = touchX + 'px';
-            starship.style.top = touchY + 'px';
-            
+            starship.style.top = (touchY - 70) + 'px';
             // Stocker la position pour les calculs
             starship.dataset.realX = touchX;
-            starship.dataset.realY = touchY + window.scrollY;
-            
-            // Calculer l'angle de rotation en fonction du mouvement
-            if (lastTouchX && lastTouchY) {
-                const deltaX = touchX - lastTouchX;
-                const deltaY = touchY - lastTouchY;
-                
-                if (Math.abs(deltaX) > 2 || Math.abs(deltaY) > 2) {
-                    // Calculer l'angle du mouvement et appliquer la rotation
-                    const angle = Math.atan2(deltaY, deltaX) * 150 / Math.PI;
-                    starship.style.transform = `translate(-50%, -50%) rotate(${angle + 105}deg) scale(1.5)`;
-                }
+            starship.dataset.realY = touchY + window.scrollY - 70;
+            // Tirer en continu (toutes les 80ms)
+            const now = Date.now();
+            if (now - lastFire > 80) {
+                fireLaser(touch);
+                lastFire = now;
             }
-            
-            // Mémoriser la position
-            lastTouchX = touchX;
-            lastTouchY = touchY;
+        }
+    }, { passive: false });
+    document.addEventListener('touchstart', function(e) {
+        if (isShipMode && !e.target.closest('.mode-toggle')) {
+            e.preventDefault();
+            const touch = e.touches[0];
+            const touchX = touch.clientX;
+            const touchY = touch.clientY;
+            // Décale le curseur de 70px au-dessus du doigt
+            starship.style.left = touchX + 'px';
+            starship.style.top = (touchY - 70) + 'px';
+            // Stocker la position pour les calculs
+            starship.dataset.realX = touchX;
+            starship.dataset.realY = touchY + window.scrollY - 70;
+            // Tir immédiat
+            fireLaser(touch);
+            lastFire = Date.now();
         }
     }, { passive: false });
     
