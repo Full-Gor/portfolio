@@ -967,21 +967,55 @@
 }
 
 /* Styles spécifiques pour les très petits écrans (téléphones compacts) */
-@media (max-width: 320px) {
-    .hero h1 {
-        font-size: 1.8rem !important;
-    }
-    
-    .btn, button {
-        padding: 10px 15px !important;
-        font-size: 0.9rem !important;
-    }
-    
-    nav ul li a {
-        font-size: 14px !important;
-    }
-    span.letter { letter-spacing: -0.16em !important; }
-}
+        @media (max-width: 370px) {
+            .hero h1 {
+                font-size: 1.6rem !important;
+            }
+            
+            .hero p {
+                font-size: 0.9rem !important;
+            }
+            
+            .btn, button {
+                padding: 8px 12px !important;
+                font-size: 0.85rem !important;
+            }
+            
+            nav ul li a {
+                font-size: 13px !important;
+            }
+            
+            section h2 {
+                font-size: 1.8rem !important;
+            }
+            
+            .about-text p, .project-info p {
+                font-size: 0.8rem !important;
+            }
+            
+            .tag {
+                font-size: 0.75rem !important;
+                padding: 4px 8px !important;
+            }
+            
+            span.letter { letter-spacing: normal !important; }
+        }
+        
+        @media (max-width: 320px) {
+            .hero h1 {
+                font-size: 1.4rem !important;
+            }
+            
+            .btn, button {
+                padding: 6px 10px !important;
+                font-size: 0.8rem !important;
+            }
+            
+            nav ul li a {
+                font-size: 12px !important;
+            }
+            span.letter { letter-spacing: normal !important; }
+        }
 
 /* Styles pour le bouton de basculement mode navigation/vaisseau */
 .mode-toggle {
@@ -1186,13 +1220,59 @@ body.starship-mode {
                 font-size: 0.85rem;
                 padding: 8px 10px !important;
             }
-            span.letter { letter-spacing: -0.12em !important; }
+            span.letter { letter-spacing: normal !important; }
         }
         /* Pour forcer le retour à la ligne naturel sur tous les textes */
         .hero h1, .hero p, section h2, .about-text p, .project-info p, .btn, button, .tag {
             word-break: break-word;
             overflow-wrap: break-word;
             white-space: normal;
+        }
+        
+        /* Couleurs alternées pour les mots sur tous les écrans */
+        .hero h1 .word:nth-child(odd) {
+            color: #00ffff !important;
+            text-shadow: 0 0 10px #00ffff !important;
+        }
+        .hero h1 .word:nth-child(even) {
+            color: #ff0066 !important;
+            text-shadow: 0 0 10px #ff0066 !important;
+        }
+        
+        .hero p .word:nth-child(odd) {
+            color: #00ffff !important;
+            text-shadow: 0 0 8px #00ffff !important;
+        }
+        .hero p .word:nth-child(even) {
+            color: #ff0066 !important;
+            text-shadow: 0 0 8px #ff0066 !important;
+        }
+        
+        section h2 .word:nth-child(odd) {
+            color: #00ffff !important;
+            text-shadow: 0 0 10px #00ffff !important;
+        }
+        section h2 .word:nth-child(even) {
+            color: #ff0066 !important;
+            text-shadow: 0 0 10px #ff0066 !important;
+        }
+        
+        .about-text p .word:nth-child(odd) {
+            color: #00ffff !important;
+            text-shadow: 0 0 6px #00ffff !important;
+        }
+        .about-text p .word:nth-child(even) {
+            color: #ff0066 !important;
+            text-shadow: 0 0 6px #ff0066 !important;
+        }
+        
+        .project-info p .word:nth-child(odd) {
+            color: #00ffff !important;
+            text-shadow: 0 0 6px #00ffff !important;
+        }
+        .project-info p .word:nth-child(even) {
+            color: #ff0066 !important;
+            text-shadow: 0 0 6px #ff0066 !important;
         }
         @media (max-width: 768px) {
             /* ... autres styles ... */
@@ -1202,10 +1282,6 @@ body.starship-mode {
                 height: 100% !important;
                 border-radius: 6px !important;
             }
-            /* Espacement entre lettres très réduit pour la lisibilité */
-            .hero h1, .hero p, section h2, .about-text p, .project-info p, .btn, button, .tag, nav ul li a {
-                letter-spacing: -0.01em !important;
-            }
         }
         @media (max-width: 480px) {
             /* Shields encore plus petits */
@@ -1214,23 +1290,23 @@ body.starship-mode {
                 height: 90% !important;
                 border-radius: 4px !important;
             }
-            /* Espacement entre lettres encore plus réduit */
+            /* Espacement entre lettres normal */
             .hero h1, .hero p, section h2, .about-text p, .project-info p, .btn, button, .tag, nav ul li a {
-                letter-spacing: -0.03em !important;
+                letter-spacing: normal !important;
             }
         }
         /* Espacement normal entre mots */
         .hero h1, .hero p, section h2, .about-text p, .project-info p, .btn, button, .tag, nav ul li a {
-            word-spacing: 0.25em;
+            word-spacing: normal;
         }
         @media (max-width: 992px) {
-            span.letter { letter-spacing: -0.12em !important; }
+            span.letter { letter-spacing: normal !important; }
         }
         @media (max-width: 480px) {
-            span.letter { letter-spacing: -0.18em !important; }
+            span.letter { letter-spacing: normal !important; }
         }
         @media (max-width: 320px) {
-            span.letter { letter-spacing: -0.22em !important; }
+            span.letter { letter-spacing: normal !important; }
         }
     </style>
 </head>
@@ -1726,49 +1802,59 @@ body.starship-mode {
         }
         // SYSTÈME DE VAISSEAU SPATIAL ET TIR LASER
         function initStarship() {
-            // Fonction pour envelopper les lettres de tous les textes du site
-            function wrapAllText() {
-                // Sélectionner TOUS les éléments textuels du site
-                const textElements = [
-                    ...document.querySelectorAll('.hero h1'),
-                    ...document.querySelectorAll('.hero p'),
-                    ...document.querySelectorAll('section h2'),
-                    ...document.querySelectorAll('.about-text p'),
-                    ...document.querySelectorAll('.project-info h3'),
-                    ...document.querySelectorAll('.project-info p'),
-                    ...document.querySelectorAll('.project-tags .tag'),
-                    ...document.querySelectorAll('nav ul li a'),
-                    ...document.querySelectorAll('.btn'),
-                    ...document.querySelectorAll('button'),
-                    ...document.querySelectorAll('.copyright')
-                ];
-                
-                textElements.forEach(element => {
-                    if (!element) return;
-                    
-                    const text = element.textContent;
-                    let wrappedText = '';
-                    
-                    // Parcourir chaque caractère et l'envelopper dans un span
-                    for (let i = 0; i < text.length; i++) {
-                        if (text[i] === ' ') {
-                            wrappedText += ' '; // Préserver les espaces
-                        } else {
-                            // Ajouter une classe spécifique selon le type d'élément
-                            let extraClass = '';
-                            if (element.tagName === 'H1') extraClass = 'letter-title';
-                            else if (element.tagName === 'H2' || element.tagName === 'H3') extraClass = 'letter-heading';
-                            else if (element.tagName === 'P') extraClass = 'letter-paragraph';
-                            else if (element.classList.contains('tag')) extraClass = 'letter-tag';
-                            else if (element.tagName === 'A') extraClass = 'letter-link';
-                            else if (element.classList.contains('btn') || element.tagName === 'BUTTON') extraClass = 'letter-button';
-                            
-                            wrappedText += `<span class="letter ${extraClass}">${text[i]}</span>`;
-                        }
-                    }
-                    
-                    element.innerHTML = wrappedText;
-                });
+                         // Fonction pour envelopper les lettres de tous les textes du site
+             function wrapAllText() {
+                 // Sélectionner TOUS les éléments textuels du site
+                 const textElements = [
+                     ...document.querySelectorAll('.hero h1'),
+                     ...document.querySelectorAll('.hero p'),
+                     ...document.querySelectorAll('section h2'),
+                     ...document.querySelectorAll('.about-text p'),
+                     ...document.querySelectorAll('.project-info h3'),
+                     ...document.querySelectorAll('.project-info p'),
+                     ...document.querySelectorAll('.project-tags .tag'),
+                     ...document.querySelectorAll('nav ul li a'),
+                     ...document.querySelectorAll('.btn'),
+                     ...document.querySelectorAll('button'),
+                     ...document.querySelectorAll('.copyright')
+                 ];
+                 
+                 textElements.forEach(element => {
+                     if (!element) return;
+                     
+                     const text = element.textContent;
+                     let wrappedText = '';
+                     
+                     // Diviser le texte en mots
+                     const words = text.split(' ');
+                     
+                     words.forEach((word, wordIndex) => {
+                         if (wordIndex > 0) {
+                             wrappedText += ' '; // Ajouter l'espace entre les mots
+                         }
+                         
+                         // Envelopper chaque mot dans un span
+                         wrappedText += `<span class="word">`;
+                         
+                         // Parcourir chaque caractère du mot et l'envelopper dans un span
+                         for (let i = 0; i < word.length; i++) {
+                             // Ajouter une classe spécifique selon le type d'élément
+                             let extraClass = '';
+                             if (element.tagName === 'H1') extraClass = 'letter-title';
+                             else if (element.tagName === 'H2' || element.tagName === 'H3') extraClass = 'letter-heading';
+                             else if (element.tagName === 'P') extraClass = 'letter-paragraph';
+                             else if (element.classList.contains('tag')) extraClass = 'letter-tag';
+                             else if (element.tagName === 'A') extraClass = 'letter-link';
+                             else if (element.classList.contains('btn') || element.tagName === 'BUTTON') extraClass = 'letter-button';
+                             
+                             wrappedText += `<span class="letter ${extraClass}">${word[i]}</span>`;
+                         }
+                         
+                         wrappedText += `</span>`;
+                     });
+                     
+                     element.innerHTML = wrappedText;
+                 });
                 
                 // Ajouter des classes pour les éléments interactifs
                 document.querySelectorAll('.project-card, .btn, button, .social-icons a, .about-img').forEach(element => {
