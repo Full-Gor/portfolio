@@ -189,8 +189,12 @@
         
         .about-img img {
             width: 100%;
+            height: 800px; /* 2 times larger than 400px */
+            object-fit: cover;
             border-radius: 10px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            margin-top: -30px; /* Move up by 30px */
+            transform: translateY(-30px); /* Alternative way to move up */
         }
         
         .about-text {
@@ -1357,13 +1361,18 @@ body.starship-mode {
         <h2>À propos</h2>
         <div class="about-content">
             <div class="about-img">
-                <img src="/api/placeholder/500/500" alt="Portrait">
+                <img src="matrix.png" alt="Portrait">
             </div>
             <div class="about-text">
                 <p>Bienvenue dans mon univers numérique ! Tout comme les Gardiens de la Galaxie, je suis un aventurier du web, explorant les confins du design et du développement pour créer des expériences uniques.</p>
                 <p>Avec plus de 5 ans d'expérience dans la création de sites web et d'applications, j'ai développé une expertise dans les technologies modernes comme React, Vue.js et Node.js, tout en gardant une passion pour les effets visuels créatifs et les interfaces utilisateur innovantes.</p>
                 <p>Quand je ne suis pas en train de coder, vous pouvez me trouver à l'écoute des meilleures musiques des années 80, à la recherche d'inspiration pour mes prochaines créations.</p>
-                <a href="https://cv-delta-sand.vercel.app/" target="_blank" class="btn">Voir mon CV</a>
+                <a href="https://cv-delta-sand.vercel.app/" target="_blank" style="text-decoration: none;">
+                    <svg width="180" height="320" viewBox="0 0 24 24" style="vertical-align: middle; fill: white; display: inline-block; margin-top: -20px; cursor: pointer;">
+                        <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"/>
+                        <text x="12" y="16" text-anchor="middle" fill="white" font-size="8" font-weight="bold">CV</text>
+                    </svg>
+                </a>
             </div>
         </div>
     </section>
