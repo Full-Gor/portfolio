@@ -972,7 +972,7 @@
 
 /* Styles spécifiques pour les très petits écrans (téléphones compacts) */
         @media (max-width: 370px) {
-    .hero h1 {
+            .hero h1 {
                 font-size: 1.6rem !important;
             }
             
@@ -990,8 +990,8 @@
             }
             
             section h2 {
-        font-size: 1.8rem !important;
-    }
+                font-size: 1.8rem !important;
+            }
             
             .about-text p, .project-info p {
                 font-size: 0.8rem !important;
@@ -1009,17 +1009,17 @@
             .hero h1 {
                 font-size: 1.4rem !important;
             }
-    
-    .btn, button {
+            
+            .btn, button {
                 padding: 6px 10px !important;
                 font-size: 0.8rem !important;
-    }
-    
-    nav ul li a {
+            }
+            
+            nav ul li a {
                 font-size: 12px !important;
-    }
+            }
             span.letter { letter-spacing: normal !important; }
-}
+        }
 
 /* Styles pour le bouton de basculement mode navigation/vaisseau */
 .mode-toggle {
@@ -1377,10 +1377,10 @@ body.starship-mode {
         </div>
     </section>
     
-<!-- Projets -->
-<section id="projects" class="projects">
-    <h2>Mes Projets</h2>
-    <div class="project-grid">
+ <!-- Projets -->
+ <section id="projects" class="projects">
+     <h2>Mes Projets</h2>
+     <div class="project-grid">
  <!-- Projet MemoryNotes -->
  <div class="project-card">
      <div class="project-img">
@@ -1434,23 +1434,23 @@ body.starship-mode {
      </div>
  </div>
 
-<!-- Projet 10 (Royal Hotel) -->
-<div class="project-card">
-    <div class="project-img">
-        <img src="/royal-hotel.png" alt="Royal Hotel">
-    </div>
-    <div class="project-info">
-        <h3>Royal Hotel</h3>
-        <p>Plateforme de réservation en ligne pour chambres d'hôtel de luxe avec interface moderne et expérience premium.</p>
-        <div class="project-tags">
-            <span class="tag">React</span>
-            <span class="tag">TypeScript</span>
-            <span class="tag">Supabase</span>
-            <span class="tag">Stripe</span>
-        </div>
-        <a href="https://royal-h-tel-9aa8.vercel.app/" target="_blank" class="btn">Voir le projet</a>
-    </div>
-</div>
+ <!-- Projet 10 (Royal Hotel) -->
+ <div class="project-card">
+     <div class="project-img">
+         <img src="/royal-hotel.png" alt="Royal Hotel">
+     </div>
+     <div class="project-info">
+         <h3>Royal Hotel</h3>
+         <p>Plateforme de réservation en ligne pour chambres d'hôtel de luxe avec interface moderne et expérience premium.</p>
+         <div class="project-tags">
+             <span class="tag">React</span>
+             <span class="tag">TypeScript</span>
+             <span class="tag">Supabase</span>
+             <span class="tag">Stripe</span>
+         </div>
+         <a href="https://royal-h-tel-9aa8.vercel.app/" target="_blank" class="btn">Voir le projet</a>
+     </div>
+ </div>
 
 <!-- Projet LuxDrive -->
 <div class="project-card">
@@ -1923,29 +1923,29 @@ body.starship-mode {
         }
         // SYSTÈME DE VAISSEAU SPATIAL ET TIR LASER
         function initStarship() {
-            // Fonction pour envelopper les lettres de tous les textes du site
-            function wrapAllText() {
-                // Sélectionner TOUS les éléments textuels du site
-                const textElements = [
-                    ...document.querySelectorAll('.hero h1'),
-                    ...document.querySelectorAll('.hero p'),
-                    ...document.querySelectorAll('section h2'),
-                    ...document.querySelectorAll('.about-text p'),
-                    ...document.querySelectorAll('.project-info h3'),
-                    ...document.querySelectorAll('.project-info p'),
-                    ...document.querySelectorAll('.project-tags .tag'),
-                    ...document.querySelectorAll('nav ul li a'),
-                    ...document.querySelectorAll('.btn'),
-                    ...document.querySelectorAll('button'),
-                    ...document.querySelectorAll('.copyright')
-                ];
-                
-                textElements.forEach(element => {
-                    if (!element) return;
-                    
-                    const text = element.textContent;
-                    let wrappedText = '';
-                    
+                         // Fonction pour envelopper les lettres de tous les textes du site
+             function wrapAllText() {
+                 // Sélectionner TOUS les éléments textuels du site
+                 const textElements = [
+                     ...document.querySelectorAll('.hero h1'),
+                     ...document.querySelectorAll('.hero p'),
+                     ...document.querySelectorAll('section h2'),
+                     ...document.querySelectorAll('.about-text p'),
+                     ...document.querySelectorAll('.project-info h3'),
+                     ...document.querySelectorAll('.project-info p'),
+                     ...document.querySelectorAll('.project-tags .tag'),
+                     ...document.querySelectorAll('nav ul li a'),
+                     ...document.querySelectorAll('.btn'),
+                     ...document.querySelectorAll('button'),
+                     ...document.querySelectorAll('.copyright')
+                 ];
+                 
+                 textElements.forEach(element => {
+                     if (!element) return;
+                     
+                     const text = element.textContent;
+                     let wrappedText = '';
+                     
                      // Diviser le texte en mots
                      const words = text.split(' ');
                      
@@ -1959,23 +1959,23 @@ body.starship-mode {
                          
                          // Parcourir chaque caractère du mot et l'envelopper dans un span
                          for (let i = 0; i < word.length; i++) {
-                            // Ajouter une classe spécifique selon le type d'élément
-                            let extraClass = '';
-                            if (element.tagName === 'H1') extraClass = 'letter-title';
-                            else if (element.tagName === 'H2' || element.tagName === 'H3') extraClass = 'letter-heading';
-                            else if (element.tagName === 'P') extraClass = 'letter-paragraph';
-                            else if (element.classList.contains('tag')) extraClass = 'letter-tag';
-                            else if (element.tagName === 'A') extraClass = 'letter-link';
-                            else if (element.classList.contains('btn') || element.tagName === 'BUTTON') extraClass = 'letter-button';
-                            
+                             // Ajouter une classe spécifique selon le type d'élément
+                             let extraClass = '';
+                             if (element.tagName === 'H1') extraClass = 'letter-title';
+                             else if (element.tagName === 'H2' || element.tagName === 'H3') extraClass = 'letter-heading';
+                             else if (element.tagName === 'P') extraClass = 'letter-paragraph';
+                             else if (element.classList.contains('tag')) extraClass = 'letter-tag';
+                             else if (element.tagName === 'A') extraClass = 'letter-link';
+                             else if (element.classList.contains('btn') || element.tagName === 'BUTTON') extraClass = 'letter-button';
+                             
                              wrappedText += `<span class="letter ${extraClass}">${word[i]}</span>`;
-                    }
+                         }
                          
                          wrappedText += `</span>`;
                      });
-                    
-                    element.innerHTML = wrappedText;
-                });
+                     
+                     element.innerHTML = wrappedText;
+                 });
                 
                 // Ajouter des classes pour les éléments interactifs
                 document.querySelectorAll('.project-card, .btn, button, .social-icons a, .about-img').forEach(element => {
@@ -2521,21 +2521,25 @@ body.starship-mode {
                 }, 10); // Plus rapide pour un mouvement fluide
             }
             
-          // Variables pour le système de tir chargé
+            // Ajouter l'écouteur d'événement pour les clics
+            document.addEventListener('click', fireLaser);
+
+
+            // Variables pour le système de tir chargé
+// Variables pour le système de tir chargé
 let isCharging = false;
 let chargeStartTime = 0;
 let chargeBall = null;
 let chargeAnimation = null;
-let lightningIntervals = [];
+let lightningElements = [];
 let mouseDownTime = 0;
-let targetX = 0; // Position cible pour le tir
+let targetX = 0;
 let targetY = 0;
-const CHARGE_DURATION = 5000; // 5 secondes
-const CLICK_THRESHOLD = 150; // milliseconds pour différencier clic simple
+const CHARGE_DURATION = 5000;
+const CLICK_THRESHOLD = 150;
 
-// Fonction pour créer un éclair sphérique qui parcourt la surface
+// Fonction pour créer de VRAIS éclairs visuels (branches + rotation)
 function createSphericalLightning(ball, index) {
-    console.log('⚡ Création éclair sphérique:', { ball: !!ball, isCharging, index });
     if (!ball || !isCharging) return;
     
     const rect = ball.getBoundingClientRect();
@@ -2543,196 +2547,182 @@ function createSphericalLightning(ball, index) {
     const centerY = rect.top + rect.height / 2;
     const radius = rect.width / 2;
     
-    console.log('📏 Dimensions éclair:', { centerX, centerY, radius, width: rect.width, height: rect.height });
-    
-    // Déterminer la couleur selon la taille de la boule
+    // Couleur selon la phase
     const size = parseFloat(ball.style.width);
-    let lightningColor = 'magenta';
+    let lightningColor = '#ff00ff';
     if (size > 100 && size <= 250) {
-        lightningColor = 'red';
+        lightningColor = '#ff0000';
     } else if (size > 250) {
-        lightningColor = 'magenta';
+        lightningColor = '#ff00ff';
     }
     
-    // Créer le conteneur de l'éclair avec position relative pour éviter les conflits
+    // Conteneur pour l'éclair
     const lightningContainer = document.createElement('div');
+    lightningContainer.className = 'lightning-container';
     lightningContainer.style.cssText = `
         position: fixed;
         left: ${centerX}px;
         top: ${centerY}px;
-        width: ${radius * 2 + 20}px;
-        height: ${radius * 2 + 20}px;
+        width: ${radius * 2 + 60}px;
+        height: ${radius * 2 + 60}px;
         pointer-events: none;
-        z-index: 100001;
-        transform: translate(-50%, -50%);
-        overflow: visible;
-        border: 2px solid ${lightningColor};
-        background: rgba(255, 0, 0, 0.2);
+        z-index: 999999;
+        transform: translate(-50%, -50%) rotate(${(index || 0) * 90}deg);
     `;
     
-    // Créer un éclair long et continu avec positionnement corrigé
-    const path = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-    path.style.cssText = `
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        left: 0;
-        top: 0;
-        pointer-events: none;
-        overflow: visible;
-    `;
-    
-    const lightning = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-    
-    // Créer un chemin d'éclair simple et visible
-    const svgSize = radius * 2 + 20;
-    const center = svgSize / 2;
-    
-    // Éclair simple en forme de cercle avec des zigzags
-    let pathData = '';
-    const points = 20;
-    for (let i = 0; i <= points; i++) {
-        const angle = (i / points) * Math.PI * 2;
-        const wobble = Math.sin(i * 3) * 8;
-        const x = center + (radius + wobble) * Math.cos(angle);
-        const y = center + (radius + wobble) * Math.sin(angle);
+    // Branches avec sous-branches
+    for (let j = 0; j < 4; j++) {
+        const branch = document.createElement('div');
+        const branchAngle = j * 90;
+        const branchLength = radius + 30;
         
-        if (i === 0) {
-            pathData = `M ${x} ${y}`;
-        } else {
-            pathData += ` L ${x} ${y}`;
+        branch.style.cssText = `
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: ${branchLength}px;
+            height: 3px;
+            background: linear-gradient(90deg, ${lightningColor} 0%, transparent 100%);
+            transform-origin: 0 50%;
+            transform: rotate(${branchAngle}deg);
+            box-shadow: 0 0 10px ${lightningColor}, 0 0 20px ${lightningColor}, 0 0 30px ${lightningColor};
+            filter: brightness(2);
+            opacity: 0;
+            animation: lightningStrike 0.3s ease-out forwards;
+        `;
+        
+        for (let k = 0; k < 2; k++) {
+            const subBranch = document.createElement('div');
+            const subPos = 30 + Math.random() * 40;
+            const subLength = 10 + Math.random() * 20;
+            const subAngle = (Math.random() - 0.5) * 60;
+            
+            subBranch.style.cssText = `
+                position: absolute;
+                left: ${subPos}%;
+                top: 50%;
+                width: ${subLength}px;
+                height: 1px;
+                background: ${lightningColor};
+                transform: rotate(${subAngle}deg);
+                transform-origin: 0 50%;
+                box-shadow: 0 0 5px ${lightningColor};
+                opacity: 0;
+                animation: lightningStrike 0.2s ease-out forwards ${k * 0.1}s;
+            `;
+            branch.appendChild(subBranch);
         }
+        
+        lightningContainer.appendChild(branch);
     }
-    pathData += ' Z'; // Fermer le chemin
     
-    lightning.setAttribute('d', pathData);
-    lightning.setAttribute('stroke', lightningColor);
-    lightning.setAttribute('stroke-width', '6');
-    lightning.setAttribute('fill', 'none');
-    lightning.setAttribute('filter', `drop-shadow(0 0 8px ${lightningColor}) drop-shadow(0 0 15px ${lightningColor})`);
-    lightning.style.opacity = '1';
-    
-    // Debug : rendre l'éclair plus visible
-    console.log('🎯 Éclair SVG créé:', { 
-        stroke: lightningColor, 
-        strokeWidth: '6', 
-        pathData: pathData.substring(0, 50) + '...',
-        svgElement: lightning
-    });
-    
-    path.appendChild(lightning);
-    lightningContainer.appendChild(path);
     document.body.appendChild(lightningContainer);
+    lightningElements.push(lightningContainer);
     
-    console.log('⚡ Éclair créé et ajouté au DOM:', { 
-        container: lightningContainer, 
-        svg: path, 
-        lightning: lightning,
-        color: lightningColor,
-        pathData: pathData.substring(0, 100) + '...'
-    });
-    
-    // Rotation continue de l'éclair
-    let rotationAngle = 0;
-    const rotationInterval = setInterval(() => {
+    // Rotation et suivi de la boule
+    let rotation = (index || 0) * 90;
+    const rotateInterval = setInterval(() => {
         if (!isCharging || !ball) {
-            clearInterval(rotationInterval);
+            clearInterval(rotateInterval);
             return;
         }
-        
-        // Mettre à jour la position si la boule bouge
+        rotation += 3;
         const newRect = ball.getBoundingClientRect();
         lightningContainer.style.left = (newRect.left + newRect.width / 2) + 'px';
         lightningContainer.style.top = (newRect.top + newRect.height / 2) + 'px';
-        
-        rotationAngle += 3;
-        lightningContainer.style.transform = `translate(-50%, -50%) rotate(${rotationAngle}deg)`;
+        lightningContainer.style.width = (newRect.width + 60) + 'px';
+        lightningContainer.style.height = (newRect.height + 60) + 'px';
+        lightningContainer.style.transform = `translate(-50%, -50%) rotate(${rotation}deg)`;
     }, 30);
     
-    // Supprimer l'éclair après 2 secondes et en créer un nouveau
+    // Recréer périodiquement
     setTimeout(() => {
-        if (lightningContainer.parentNode) {
-            lightningContainer.remove();
-        }
-        clearInterval(rotationInterval);
-        
-        // Créer un nouvel éclair si on est toujours en train de charger
+        clearInterval(rotateInterval);
+        if (lightningContainer.parentNode) lightningContainer.remove();
+        const idx = lightningElements.indexOf(lightningContainer);
+        if (idx > -1) lightningElements.splice(idx, 1);
         if (isCharging && ball) {
             createSphericalLightning(ball, index);
         }
     }, 2000);
 }
 
-// CSS pour les animations
-const enhancedLightningStyle = document.createElement('style');
-enhancedLightningStyle.textContent = `
-    @keyframes lightningFadeIn {
-        0% { 
-            opacity: 0;
-            stroke-dasharray: 1000;
-            stroke-dashoffset: 1000;
+// CSS pour l'animation flash
+if (!document.getElementById('lightningStyles')) {
+    const style = document.createElement('style');
+    style.id = 'lightningStyles';
+    style.textContent = `
+        @keyframes flash {
+            0% { opacity: 0; transform: translate(-50%, -50%) scale(0.5); }
+            50% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+            100% { opacity: 0; transform: translate(-50%, -50%) scale(1.5); }
         }
-        50% { 
-            opacity: 1;
-            stroke-dashoffset: 0;
+    `;
+    document.head.appendChild(style);
+}
+
+// CSS pour l'animation d'éclair détaillé
+if (!document.getElementById('lightningCSS')) {
+    const style = document.createElement('style');
+    style.id = 'lightningCSS';
+    style.textContent = `
+        @keyframes lightningStrike {
+            0% { opacity: 0; filter: brightness(3); }
+            10% { opacity: 1; filter: brightness(4); }
+            30% { opacity: 0.8; filter: brightness(2); }
+            50% { opacity: 1; filter: brightness(3); }
+            100% { opacity: 0.7; filter: brightness(2); }
         }
-        100% { 
-            opacity: 0.8;
-            stroke-dashoffset: 0;
-        }
+    `;
+    document.head.appendChild(style);
+}
+
+// Nettoyage global (balle + éclairs + animation)
+function cleanupChargeElements() {
+    if (chargeBall && chargeBall.parentNode) {
+        chargeBall.remove();
+        chargeBall = null;
     }
-`;
-document.head.appendChild(enhancedLightningStyle);
+    lightningElements.forEach(lightning => {
+        if (lightning.parentNode) lightning.remove();
+    });
+    lightningElements = [];
+    if (chargeAnimation) {
+        clearInterval(chargeAnimation);
+        chargeAnimation = null;
+    }
+}
 
 // Fonction pour démarrer le chargement
 function startCharging(e) {
+    // Nettoyer tout avant de commencer
+    cleanupChargeElements();
+    
     isCharging = true;
     chargeStartTime = Date.now();
-    
-    // Stocker la position cible (où le curseur pointe)
     targetX = e.clientX;
     targetY = e.clientY;
     
-    // Récupérer le vaisseau
     const starship = document.getElementById('starshipCursor');
-    if (!starship) {
-        // Si pas de vaisseau, utiliser directement la position du curseur
-        const ballStartX = e.clientX;
-        const ballStartY = e.clientY;
-        createChargeBall(ballStartX, ballStartY);
-        return;
+    let ballX = e.clientX;
+    let ballY = e.clientY;
+    
+    if (starship) {
+        // Obtenir l'angle actuel du vaisseau
+        const transform = starship.style.transform || '';
+        let angle = -45;
+        const match = transform.match(/rotate\(([-\d.]+)deg\)/);
+        if (match) angle = parseFloat(match[1]);
+        
+        // Calculer la position DEVANT le vaisseau
+        const rad = angle * Math.PI / 180;
+        const distance = 40;
+        // IMPORTANT: utiliser les bonnes formules trigonométriques
+        ballX = e.clientX + Math.cos(rad) * distance;
+        ballY = e.clientY + Math.sin(rad) * distance;
     }
     
-    // Obtenir la position du vaisseau
-    const shipX = parseInt(starship.style.left) || e.clientX;
-    const shipY = parseInt(starship.style.top) || e.clientY;
-    
-    // Calculer l'angle du vaisseau
-    let shipAngle = -45; // Angle par défaut
-    const transform = starship.style.transform;
-    if (transform) {
-        const rotateMatch = transform.match(/rotate\(([-\d.]+)deg\)/);
-        if (rotateMatch) {
-            shipAngle = parseFloat(rotateMatch[1]);
-        }
-    }
-    
-    // Corriger l'angle (le vaisseau pointe à -45° par défaut)
-    const angleRad = (shipAngle + 90) * Math.PI / 180;
-    
-    // Position à 30px devant le nez du vaisseau
-    const noseOffset = 30;
-    const ballStartX = shipX + Math.cos(angleRad) * noseOffset;
-    const ballStartY = shipY + Math.sin(angleRad) * noseOffset;
-    
-    createChargeBall(ballStartX, ballStartY);
-}
-
-// Fonction séparée pour créer la boule
-function createChargeBall(startX, startY) {
-    console.log('🎾 Création de la balle de chargement:', { startX, startY });
-    
-    // Créer la boule
+    // Créer la boule OPAQUE
     chargeBall = document.createElement('div');
     chargeBall.style.cssText = `
         position: fixed;
@@ -2740,143 +2730,123 @@ function createChargeBall(startX, startY) {
         height: 2px;
         border-radius: 50%;
         background: radial-gradient(circle, white 30%, cyan 70%);
-        left: ${startX - 1}px;
-        top: ${startY - 1}px;
+        left: ${ballX - 1}px;
+        top: ${ballY - 1}px;
         pointer-events: none;
-        z-index: 999999;
-        opacity: 1;
-        box-shadow: 
-            0 0 10px cyan, 
-            0 0 20px cyan,
-            inset 0 0 10px rgba(255,255,255,0.5);
+        z-index: 999998;
+        opacity: 1 !important;
+        box-shadow: 0 0 30px cyan, 0 0 60px cyan;
     `;
     document.body.appendChild(chargeBall);
     
-    console.log('🎾 Balle ajoutée au DOM:', { chargeBall, parent: chargeBall.parentNode });
-    
-    // Animation de grossissement
     let currentSize = 2;
-    const startTime = Date.now();
-    let lightningStarted = false;
+    let lightningInterval = null;
     
     chargeAnimation = setInterval(() => {
-        if (!isCharging) return;
+        if (!isCharging || !chargeBall) return;
         
-        const elapsed = Date.now() - startTime;
+        const elapsed = Date.now() - chargeStartTime;
         const progress = Math.min(elapsed / CHARGE_DURATION, 1);
         currentSize = 2 + (348 * progress);
         
-        // Mise à jour de la taille (garder la position centrée)
         chargeBall.style.width = currentSize + 'px';
         chargeBall.style.height = currentSize + 'px';
-        chargeBall.style.left = (startX - currentSize / 2) + 'px';
-        chargeBall.style.top = (startY - currentSize / 2) + 'px';
+        chargeBall.style.left = (ballX - currentSize/2) + 'px';
+        chargeBall.style.top = (ballY - currentSize/2) + 'px';
         
-        // Phase 1: 0-100px (cyan opaque)
+        // Phase 1: 0-100px (cyan OPAQUE)
         if (currentSize <= 100) {
-            const intensity = currentSize / 100;
-            chargeBall.style.background = `radial-gradient(circle, 
-                white ${40 - intensity * 15}%, 
-                cyan 70%)`;
-            chargeBall.style.boxShadow = `
-                0 0 ${15 + currentSize/4}px cyan, 
-                0 0 ${30 + currentSize/2}px cyan,
-                inset 0 0 ${10 + currentSize/10}px rgba(255,255,255,0.6)`;
+            chargeBall.style.background = `radial-gradient(circle, white 30%, cyan 70%)`;
+            chargeBall.style.boxShadow = `0 0 ${30+currentSize/2}px cyan, 0 0 ${60+currentSize}px cyan`;
+            chargeBall.style.opacity = '1';
         }
-        // Phase 2: 100-250px (transition cyan vers magenta avec électricité)
+        // Phase 2: 100-250px (cyan vers magenta OPAQUE)
         else if (currentSize <= 250) {
-            const phase2Progress = (currentSize - 100) / 150;
-            const r = Math.floor(0 + (255 * phase2Progress));
-            const g = Math.floor(255 * (1 - phase2Progress));
-            const b = 255;
+            const p = (currentSize - 100) / 150;
+            const r = Math.floor(255 * p);
+            const g = Math.floor(255 * (1 - p));
+            chargeBall.style.background = `radial-gradient(circle, white 25%, rgb(${r},${g},255) 75%)`;
+            chargeBall.style.boxShadow = `0 0 ${40+currentSize/2}px rgb(${r},${g},255), 0 0 ${80+currentSize}px rgb(${r},${g},255)`;
+            chargeBall.style.opacity = '1';
             
-            chargeBall.style.background = `radial-gradient(circle, 
-                white ${25}%, 
-                rgb(${r}, ${g}, ${b}) 70%)`;
-            chargeBall.style.boxShadow = `
-                0 0 ${25 + currentSize/3}px rgb(${r}, ${g}, ${b}), 
-                0 0 ${45 + currentSize/2}px rgb(${r}, ${g}, ${b}),
-                inset 0 0 ${15 + currentSize/8}px rgba(255,255,255,0.5)`;
-            
-            // Démarrer les éclairs à 100px
-            if (!lightningStarted && currentSize > 100) {
-                lightningStarted = true;
-                // Créer 2 éclairs avec décalage
-                createSphericalLightning(chargeBall, 0);
-                setTimeout(() => {
-                    if (isCharging) createSphericalLightning(chargeBall, 1);
-                }, 1000);
+            // Démarrer les éclairs détaillés
+            if (!lightningInterval && currentSize > 100) {
+                lightningInterval = setInterval(() => {
+                    if (isCharging && chargeBall) {
+                        createSphericalLightning(chargeBall, 0);
+                        setTimeout(() => { if (isCharging && chargeBall) createSphericalLightning(chargeBall, 1); }, 120);
+                    }
+                }, 600);
             }
         }
-        // Phase 3: 250-350px (rouge avec électricité magenta)
+        // Phase 3: 250-350px (rouge OPAQUE)
         else {
-            const phase3Progress = (currentSize - 250) / 100;
-            const whiteOpacity = Math.max(0.2, 1 - phase3Progress);
-            const g = Math.floor(255 * (1 - phase3Progress));
-            
-            chargeBall.style.background = `radial-gradient(circle, 
-                rgba(255, 255, 255, ${whiteOpacity}) ${15}%, 
-                rgb(255, ${g}, 0) 70%)`;
-            chargeBall.style.boxShadow = `
-                0 0 ${35 + currentSize/3}px rgb(255, ${g}, 0), 
-                0 0 ${60 + currentSize/2}px red,
-                inset 0 0 ${20 + currentSize/6}px rgba(255,255,255,0.3)`;
+            const p = (currentSize - 250) / 100;
+            const g = Math.floor(100 * (1 - p));
+            // IMPORTANT: garder opacity: 1 et background solide
+            chargeBall.style.background = `radial-gradient(circle, rgba(255,255,255,${Math.max(0.5, 1-p*0.5)}) 20%, rgb(255,${g},0) 80%)`;
+            chargeBall.style.boxShadow = `0 0 ${50+currentSize/2}px red, 0 0 ${100+currentSize}px red`;
+            chargeBall.style.opacity = '1';
         }
         
         // Auto-tir à 350px
         if (currentSize >= 350) {
+            clearInterval(lightningInterval);
             fireChargedBall();
         }
     }, 20);
 }
 
-// Fonction pour tirer la boule chargée
+// Fonction pour tirer la boule
 function fireChargedBall() {
     if (!chargeBall) return;
     
     isCharging = false;
     clearInterval(chargeAnimation);
+    // Nettoyer immédiatement les éclairs visibles
+    lightningElements.forEach(el => { if (el.parentNode) el.remove(); });
+    lightningElements = [];
     
     const ball = chargeBall;
     chargeBall = null;
     
-    // Position de départ de la boule
-    const startX = parseFloat(ball.style.left) + parseFloat(ball.style.width) / 2;
-    const startY = parseFloat(ball.style.top) + parseFloat(ball.style.height) / 2;
+    const ballCenterX = parseFloat(ball.style.left) + parseFloat(ball.style.width) / 2;
+    const ballCenterY = parseFloat(ball.style.top) + parseFloat(ball.style.height) / 2;
     
-    // Calculer la direction vers la cible
-    const dx = targetX - startX;
-    const dy = targetY - startY;
-    const distance = Math.sqrt(dx * dx + dy * dy);
-    const dirX = dx / distance;
-    const dirY = dy / distance;
+    // IMPORTANT: Direction vers la position ACTUELLE du curseur
+    const dx = targetX - ballCenterX;
+    const dy = targetY - ballCenterY;
+    const dist = Math.sqrt(dx*dx + dy*dy);
     
-    let progress = 0;
-    const speed = 400; // pixels par seconde
+    if (dist === 0) return;
     
-    const fireInterval = setInterval(() => {
-        progress += 0.02;
-        if (progress >= 2 || !ball.parentNode) {
-            clearInterval(fireInterval);
+    const dirX = dx / dist;
+    const dirY = dy / dist;
+    
+    let traveled = 0;
+    const speed = 25;
+    
+    const moveInterval = setInterval(() => {
+        traveled += speed;
+        
+        if (traveled > 3000 || !ball.parentNode) {
+            clearInterval(moveInterval);
             if (ball.parentNode) ball.remove();
             return;
         }
         
-        // Mouvement dans la direction de la cible
-        const traveled = progress * speed;
-        const newX = startX + dirX * traveled;
-        const newY = startY + dirY * traveled;
+        const newX = ballCenterX + dirX * traveled;
+        const newY = ballCenterY + dirY * traveled;
         
-        ball.style.left = (newX - parseFloat(ball.style.width) / 2) + 'px';
-        ball.style.top = (newY - parseFloat(ball.style.height) / 2) + 'px';
-        ball.style.opacity = Math.max(0, 1 - progress * 0.4).toString();
+        ball.style.left = (newX - parseFloat(ball.style.width)/2) + 'px';
+        ball.style.top = (newY - parseFloat(ball.style.height)/2) + 'px';
+        ball.style.opacity = Math.max(0.3, 1 - traveled/3000).toString();
     }, 20);
 }
 
-// Event listeners
+// Event listeners PROPRES (supprimer les anciens)
 document.addEventListener('mousedown', function(e) {
     if (e.button !== 0) return;
-    
     mouseDownTime = Date.now();
     
     setTimeout(() => {
@@ -2887,8 +2857,8 @@ document.addEventListener('mousedown', function(e) {
 });
 
 document.addEventListener('mousemove', function(e) {
-    // Mettre à jour la cible pendant le chargement
     if (isCharging) {
+        // Mettre à jour la cible en temps réel
         targetX = e.clientX;
         targetY = e.clientY;
     }
@@ -2897,24 +2867,21 @@ document.addEventListener('mousemove', function(e) {
 document.addEventListener('mouseup', function(e) {
     if (e.button !== 0) return;
     
-    const clickDuration = Date.now() - mouseDownTime;
+    const duration = Date.now() - mouseDownTime;
     mouseDownTime = 0;
     
     if (isCharging) {
+        // Utiliser la position actuelle du curseur pour le tir
         targetX = e.clientX;
         targetY = e.clientY;
         fireChargedBall();
-    } else if (clickDuration < CLICK_THRESHOLD) {
-        if (typeof fireLaser === 'function') {
-            fireLaser(e);
-        }
+    } else if (duration < CLICK_THRESHOLD && typeof fireLaser === 'function') {
+        fireLaser(e);
     }
 });
 
 document.addEventListener('mouseleave', function() {
-    if (isCharging) {
-        fireChargedBall();
-    }
+    if (isCharging) fireChargedBall();
     mouseDownTime = 0;
 });
         }
